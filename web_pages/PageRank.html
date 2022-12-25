@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PageRank - просто!</title>
+</head>
+<body>
+<h1 style="text-align: center;">PageRank и с чем его едят</h1>
+<h2 style="text-align: center;"><strong>Мацулевич Никита Андреевич</strong></h2>
+<h3 style="text-align: center;"><strong>1. Для чего нужен алгоритм ранжирования</strong></h3>
+<p style="text-align: center;">Представим, что вы заходите в свой интернет-браузер и хотите найти в нём информацию по запросу. Поисковая система находит страницы, релевантные по ключевым словам, которые вы ввели, но вот вопрос: какие из них показывать первыми, а какие последними. Каким образом можно было бы ранжировать уже найденные по запросу страницы?</p>
+<p style="text-align: center;">И тут на помощь приходить алгоритм, который называется PageRank. Он поможет отсортировать страницы по критерию их "важности" в сети Интернет.</p>
+<h3 style="text-align: center;"><strong>2. Что такое PageRank</strong></h3>
+<p style="text-align: center;"><strong>PageRank</strong> - это программа для вычисления собственных значений, мощный сходящийся алгоритм. Этот алгоритм производит анализ ссылок, и на основе анализа определяется порядок вывода результатов веб-поиска.</p>
+<p style="text-align: center;">По сути, этот алгоритм можно использовать для любых проиндексированных поисковых данных, а не только для веб-страниц.</p>
+<h3 style="text-align: center;">3. Как он работает</h3>
+<p style="text-align: center;">Вернёмся к нашему примеру с поиском страниц. Представим наши страницы в виде графа, где каждое направленное ребро - это ссылка одной страницы на другую. Изначально выдача не упорядочена, то есть каждая страница с равной вероятностью может оказаться первой в списке.</p>
+<p style="text-align: center;">Другими словами, каждой странице присваивается начальный PR 1/N, где N - общее число веб-страниц в графе.</p>
+<p style="text-align: center;">Далее алгоритм начинают свою итеративную работу, используя следующее уравнение.</p>
+<p style="text-align: center;"><img src="formula.jpg" style="width: 1100px;"></p>
+
+<p style="text-align: center;">Для каждого узла рассчитываем его PR. Он определяется на основании страниц, которые ссылаются на текущую страницу.</p>
+<p style="text-align: center;">PR(i) - ранг страницы, которая ссылается на текущую.</p>
+<p style="text-align: center;">C(i) - количество ссылок на странице, которая ссылается на текущую.</p>
+<p style="text-align: center;">d - коэффициент затухания, по умолчанию равен 0,85.</p>
+<p style="text-align: center;">Задав нужную нам точность вычислений рангов всех веб-страниц в графе, получаем решение за конечное число итераций.</p>
+<p style="text-align: center;">Работа алгоритма продемонстрирована на следующей анимации:</p>
+<p style="text-align: center;"><img src="1_W1JcYCCuiYAkn5gzQtLcrw.gif" style="width: 600px;" style="text-align: center;"></p>
+
+<h3 style="text-align: center;">4. Реализация кода</h3>
+<p style="text-align: center;"><img src="pagerank_func.png"></p>
+<h3 style="text-align: center;">5. Тестирование разработанного алгоритма</h3>
+<h4 style="text-align: center;">Входные данные:</h4>
+<p style="text-align: center;"><img src="web_graph_default.png" style="width: 600px;" style="text-align: center;"></p>
+<h4 style="text-align: center;">Посчитанные ранги:</h4>
+<p style="text-align: center;"><img src="web_graph_done.png" style="width: 600px;" style="text-align: center;"></p>
+<h3 style="text-align: center;">&nbsp;6. Заключение</h3>
+<p style="text-align: center;">Как видите, все просто. Спасибо за то, что прочитали мою статью.</p>
+<p>&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
+</body>
+</html>
